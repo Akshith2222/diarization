@@ -1,0 +1,16 @@
+import whisper
+
+def transcribe_audio_without_diarization(audio_file_path):
+    # Load the model
+    model = whisper.load_model("base")
+    
+    # Transcribe the audio file without diarization
+    res = model.transcribe(audio_file_path, task="transcribe", language="en")
+    
+    return res["text"]
+
+# Example usage
+audio_file_path = "/path/to/your/audio/file.wav"
+transcription = transcribe_audio_without_diarization(audio_file_path)
+print(transcription)
+
